@@ -1,4 +1,4 @@
-package com.engineer.yt.libs.exceptions;
+package exceptions;
 
 public class NotFoundException {
     private String message;

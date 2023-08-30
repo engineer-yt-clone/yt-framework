@@ -1,4 +1,4 @@
-package com.engineer.yt.libs.exceptions;
+package exceptions;
 
 public class InternalServerException extends RuntimeException {
     private String message;

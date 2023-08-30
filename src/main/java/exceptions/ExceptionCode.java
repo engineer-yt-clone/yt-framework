@@ -1,4 +1,4 @@
-package com.engineer.yt.libs.exceptions;
+package exceptions;
 
 public class ExceptionCode {
     public static final Integer NOT_FOUND = 404;
