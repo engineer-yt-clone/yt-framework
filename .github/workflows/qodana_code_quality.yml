@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - main
+      - develop
+      - feature/**
+      - hotfix/**
+      - release/**
 
 jobs:
   qodana:
