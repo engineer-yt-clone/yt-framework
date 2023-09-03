@@ -10,4 +10,4 @@ jobs:
   bump:
     runs-on: ubuntu-latest
     steps:
-      - run: bash ${GITHUB_WORKSPACE}/bump.sh 
+      - run: npx @dwmkerr/standard-version --packageFiles pom.xml --bumpFiles pom.xml -y 
