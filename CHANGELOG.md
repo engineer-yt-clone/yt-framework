@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 1.0.1 (2023-09-03)
 
+### 1.0.1 (2023-09-03)
+
 ### [1.0.1](https://github.com/engineer-yt-clone/yt-framework/compare/v1.0.0...v1.0.1) (2023-09-03)
 
 ## 1.0.0 (2023-09-03)
