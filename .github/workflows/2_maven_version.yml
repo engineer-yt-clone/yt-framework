@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          ./bump.sh
+        bash ${GITHUB_WORKSPACE}/bump.sh 
