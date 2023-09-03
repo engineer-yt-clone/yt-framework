@@ -9,6 +9,7 @@ on:
       - feature/**
       - hotfix/**
       - release/**
+      - release
 
 jobs:
   qodana:
