@@ -22,9 +22,16 @@
     </dependency>
 
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.1</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.8.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-library</artifactId>
+      <version>2.2</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -47,13 +54,20 @@
     <pluginManagement>
       <plugins>
         <plugin>
-          <artifactId>maven-source-plugin</artifactId>
-          <version>2.1.2</version>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.10.1</version>
+        </plugin>
+        <!-- Show active profiles on the compile phase -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-help-plugin</artifactId>
+          <version>3.2.0</version>
           <executions>
             <execution>
-              <phase>deploy</phase>
+              <id>show-profiles</id>
+              <phase>compile</phase>
               <goals>
-                <goal>jar</goal>
+                <goal>active-profiles</goal>
               </goals>
             </execution>
           </executions>
