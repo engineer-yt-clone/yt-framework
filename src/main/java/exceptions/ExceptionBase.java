@@ -1,9 +1,12 @@
 package exceptions;
 
-public class ExceptionBase extends Exception {
-    public String message;
+import lombok.Getter;
 
-    public Integer code;
+@Getter
+public class ExceptionBase extends RuntimeException {
+    private final String message;
+
+    private final Integer code;
 
     public ExceptionBase(Integer code, String message) {
         this.message = message;
@@ -11,7 +14,6 @@ public class ExceptionBase extends Exception {
     }
 
     public ResponseBase toJSON(Integer code, String message) {
-        ResponseBase responseBase = new ResponseBase(code, message);
-        return responseBase;
+        return new ResponseBase(code, message);
     }
 }

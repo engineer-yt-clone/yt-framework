@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.1.11 (2023-09-03)
+
+### 1.1.10 (2023-09-03)
+
+### 1.1.9 (2023-09-03)
+
+
+### Bug Fixes
+
+* fix spotbug ([afa417f](https://github.com/engineer-yt-clone/yt-framework/commit/afa417f7277858f28f7403bb5f395c3417825fe7))
+
+### 1.1.8 (2023-09-03)
+
+### 1.1.7 (2023-09-03)
+
+### 1.1.6 (2023-09-03)
+
 ### 1.1.5 (2023-09-03)
 
 
