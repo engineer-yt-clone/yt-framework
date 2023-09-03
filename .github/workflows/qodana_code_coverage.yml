@@ -1,57 +1,36 @@
-name: JaCoCo Agent - Maven Test
+name: Jacoco code coverage
 
-on:
-  workflow_dispatch:
-  pull_request:
-    branches:
-      - main
-      - release
-      - 'releases/*'
-      - develop
-      - feature/**
-  push:
-    branches:
-      - main
-      - release
-      - 'releases/*'
+on: [workflow_dispatch,pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        java_version: [16]
+        os: [ubuntu-latest]
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v1
+      - uses: actions/setup-java@v3
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v2
-        with:
+          distribution: 'corretto' # See 'Supported distributions' for available options
           java-version: '17'
-          distribution: 'adopt'
-          cache: 'maven'
-
-      - name: Validate Maven Wrapper
-        run: mvn --version
-        working-directory: JVM/jacoco/maven
-
-      - name: Run Tests
-        run: mvn test
-        working-directory: JVM/jacoco/maven
-
-      - name: Archive coverage data
-        uses: actions/upload-artifact@v2
+      - name: Cache Maven packages
+        uses: actions/cache@v3
         with:
-          name: maven-coverage-data-jacoco
-          path: JVM/jacoco/maven/.qodana/code-coverage
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Build with Maven
+        run: mvn -B install --file pom.xml
 
-      - name: Qodana Scan
-        uses: JetBrains/qodana-action@main
-        env:
-          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_MVN_JACOCO }}
+      - name: Publish test coverage results
+        uses: PavanMudigonda/jacoco-reporter@v4.8
         with:
-          args: "-i,JVM/jacoco/maven,--linter,jetbrains/qodana-jvm:2023.2-eap"
-          pr-mode: false
+          coverage_results_path: 'target/site/jacoco/jacoco.xml'
+          coverage_report_title: 'Test coverage results'
+          coverage_report_name: 'Test coverage results'
+          github_token: ${{ secrets.GITHUB_TOKEN }}

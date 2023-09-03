@@ -1,4 +1,4 @@
-name: "tag"
+name: Maven bump version
 
 on:
   push:
