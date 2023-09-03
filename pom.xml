@@ -36,102 +36,98 @@
     </dependency>
   </dependencies>
 
-  <repositories>
-    <repository>
-      <id>space-maven</id>
-      <url>https://maven.pkg.jetbrains.space/engineer-team/p/main/maven</url>
-    </repository>
-  </repositories>
-  <distributionManagement>
-    <repository>
-      <id>space-maven</id>
-      <url>https://maven.pkg.jetbrains.space/engineer-team/p/main/maven</url>
-    </repository>
-  </distributionManagement>
+    <repositories>
+      <repository>
+        <id>space-maven</id>
+        <url>https://maven.pkg.jetbrains.space/engineer-team/p/main/maven</url>
+      </repository>
+    </repositories>
+    <distributionManagement>
+      <repository>
+        <id>space-maven</id>
+        <url>https://maven.pkg.jetbrains.space/engineer-team/p/main/maven</url>
+      </repository>
+    </distributionManagement>
 
 
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.10.1</version>
-        </plugin>
-        <!-- Show active profiles on the compile phase -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-help-plugin</artifactId>
-          <version>3.2.0</version>
-          <executions>
-            <execution>
-              <id>show-profiles</id>
-              <phase>compile</phase>
-              <goals>
-                <goal>active-profiles</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
+      </plugin>
+      <!-- Show active profiles on the compile phase -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-help-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>show-profiles</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>active-profiles</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 
 
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.22.2</version>
-            <configuration>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+      </plugin>
 
-            </configuration>
-          </plugin>
-
-        <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.8.8</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>prepare-agent</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>report</id>
-              <phase>test</phase>
-              <goals>
-                <goal>report</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
+      <!-- codecov code coverage integration with JaCoCo -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.8</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 
 
-        <plugin>
-          <groupId>com.github.spotbugs</groupId>
-          <artifactId>spotbugs-maven-plugin</artifactId>
-          <version>4.7.0.0</version>
-          <configuration>
-            <includeTests>true</includeTests>
-            <effort>max</effort>
-            <plugins>
-              <plugin>
-                <groupId>com.h3xstream.findsecbugs</groupId>
-                <artifactId>findsecbugs-plugin</artifactId>
-                <version>1.12.0</version>
-              </plugin>
-            </plugins>
-          </configuration>
-          <executions>
-            <execution>
-              <id>test</id>
-              <phase>test</phase>
-              <goals>
-                <goal>check</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>4.7.0.0</version>
+        <configuration>
+          <includeTests>true</includeTests>
+          <effort>max</effort>
+          <plugins>
+            <plugin>
+              <groupId>com.h3xstream.findsecbugs</groupId>
+              <artifactId>findsecbugs-plugin</artifactId>
+              <version>1.12.0</version>
+            </plugin>
+          </plugins>
+        </configuration>
+        <executions>
+          <execution>
+            <id>test</id>
+            <phase>test</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 
-      </plugins>
-    </pluginManagement>
+    </plugins>
   </build>
 
 
