@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="607d4422-6153-4062-b503-c427ca2e38d7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/1_qodana_code_quality.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/1_qodana_code_quality.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/2_maven_version.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/2_maven_version.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>

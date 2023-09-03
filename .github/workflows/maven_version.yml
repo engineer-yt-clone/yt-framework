@@ -1,0 +1,9 @@
+name: "tag"
+
+on:
+  push:
+    branches:
+      - release/**
+      - release
+
+jobs:
