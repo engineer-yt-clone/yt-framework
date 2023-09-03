@@ -1,12 +1,7 @@
 package exceptions;
 
-public class ResponseBase {
-    public String message;
+import lombok.Getter;
 
-    public Integer code;
+public record ResponseBase(Integer code, String message) {
 
-    public ResponseBase(Integer code, String message) {
-        this.message = message;
-        this.code = code;
-    }
 }
