@@ -20,8 +20,8 @@ jobs:
           git config user.email "<41898282+github-actions[bot]@users.noreply.github.com>"
       - name: Bump version
         run: |
-          bash ls -la
-          bash ./bump_version.sh
+          ls
+          npx @dwmkerr/standard-version --packageFiles pom.xml --bumpFiles pom.xml
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
