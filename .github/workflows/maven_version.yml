@@ -1,0 +1,14 @@
+name: Qodana
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - release
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      run: |
+        ./bump.sh
