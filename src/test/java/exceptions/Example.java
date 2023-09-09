@@ -2,6 +2,7 @@ package exceptions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 public class Example {
 
@@ -9,6 +10,8 @@ public class Example {
             = LoggerFactory.getLogger(Example.class);
 
     public static void main(String[] args) {
-        logger.info("Example log from {}", Example.class.getSimpleName());
+        MDC.put("userId","TranDinh");
+        MDC.put("correctionId","1lkjwe334");
+        logger.info("Example log show userId and correctionId");
     }
 }
