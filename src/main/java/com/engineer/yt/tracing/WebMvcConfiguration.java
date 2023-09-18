@@ -8,11 +8,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebMvcConfiguration implements WebMvcConfigurer {
 
-    private CorrelationInterceptor correlationInterceptor;
+
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         System.out.println("add interceptor.");
-        registry.addInterceptor(correlationInterceptor);
+        registry.addInterceptor(new CorrelationInterceptor());
     }
 }
